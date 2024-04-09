@@ -30,39 +30,39 @@ def get_diagnosis_by_race():
     ind = np.arange(N)
 
     # Figure size
-    plt.figure(figsize=(10,10))
-    plt.subplot(211)
+    plt.figure(figsize=(8,6))
+    # plt.subplot(211)
 
     # Width of a bar 
     width = 0.3       
 
     # Plotting
-    plt.bar(ind, blue_bar, width, label='Diabetes diagnosis')
-    plt.bar(ind + width, orange_bar, width, label='Cancer diagnosis')
-    for i, value in enumerate(blue_bar):
-        plt.text(i, value + 0.5, str(value), ha='center', va='bottom')
-    for i, value in enumerate(orange_bar):
-        plt.text(i + width, value + 0.5, str(value), ha='center', va='bottom')
+    # plt.bar(ind, blue_bar, width, label='Diabetes diagnosis')
+    # plt.bar(ind + width, orange_bar, width, label='Cancer diagnosis')
+    # for i, value in enumerate(blue_bar):
+    #     plt.text(i, value + 0.5, str(value), ha='center', va='bottom')
+    # for i, value in enumerate(orange_bar):
+    #     plt.text(i + width, value + 0.5, str(value), ha='center', va='bottom')
 
-    plt.xlabel('Race')
-    plt.ylabel('Population')
-    plt.title('Diagnosis\' by race')
+    # plt.xlabel('Race')
+    # plt.ylabel('Population')
+    # plt.title('Diagnosis\' by race')
 
     # xticks()
     # First argument - A list of positions at which ticks should be placed
     # Second argument -  A list of labels to place at the given locations
-    plt.xticks(ind + width / 2, ('Hispanic', 'White', 'Black', 'Asian'))
+    # plt.xticks(ind + width / 2, ('Hispanic', 'White', 'Black', 'Asian'))
 
     # Finding the best position for legends and putting it
-    plt.legend(loc='best')
+    # plt.legend(loc='best')
 
 
     # Specify the values of blue bars (height)
-    noisy_blue_bar = (round(np.random.laplace(loc=hispanic_diab, scale=1)), round(np.random.laplace(loc=white_diab, scale=1)), round(np.random.laplace(loc=black_diab, scale=1)), round(np.random.laplace(loc=asian_diab, scale=1)))
+    noisy_blue_bar = (round(np.random.laplace(loc=hispanic_diab, scale=2)), round(np.random.laplace(loc=white_diab, scale=2)), round(np.random.laplace(loc=black_diab, scale=2)), round(np.random.laplace(loc=asian_diab, scale=2)))
     # Specify the values of orange bars (height)
-    noisy_orange_bar = (round(np.random.laplace(loc=hispanic_canc, scale=1)), round(np.random.laplace(loc=white_canc, scale=1)), round(np.random.laplace(loc=black_canc, scale=1)), round(np.random.laplace(loc=asian_canc, scale=1)))
+    noisy_orange_bar = (round(np.random.laplace(loc=hispanic_canc, scale=2)), round(np.random.laplace(loc=white_canc, scale=2)), round(np.random.laplace(loc=black_canc, scale=2)), round(np.random.laplace(loc=asian_canc, scale=2)))
 
-    plt.subplot(212)   
+    # plt.subplot(212)   
 
     # Plotting
     plt.bar(ind, noisy_blue_bar, width, label='Diabetes diagnosis')
@@ -74,7 +74,7 @@ def get_diagnosis_by_race():
 
     plt.xlabel('Race')
     plt.ylabel('Population')
-    plt.title('Diagnosis\' by race with DP (ε = 1)')
+    plt.title('Diagnoses by race (ε = 1)')
 
     # xticks()
     # First argument - A list of positions at which ticks should be placed
@@ -84,7 +84,7 @@ def get_diagnosis_by_race():
     # Finding the best position for legends and putting it
     plt.legend(loc='best')
 
-    plt.subplots_adjust(hspace=0.3)
+    # plt.subplots_adjust(hspace=0.3)
     plt.show()
 
 def get_affordability_by_race():
@@ -117,34 +117,34 @@ def get_affordability_by_race():
     ind = np.arange(N)
 
     # Figure size
-    plt.figure(figsize=(10,10))
-    plt.subplot(211)
+    plt.figure(figsize=(8,6))
+    # plt.subplot(211)
 
     # Width of a bar 
     width = 0.3       
 
     # Plotting
-    plt.bar(ind, blue_bar, width, label='Could not afford medical care')
-    plt.bar(ind + width, orange_bar, width, label='Could not afford dental care')
-    plt.bar(ind + (width * 2), green_bar, width, label='Could not afford prescription care')
-    for i, value in enumerate(blue_bar):
-        plt.text(i, value + 0.5, str(value), ha='center', va='bottom')
-    for i, value in enumerate(orange_bar):
-        plt.text(i + width, value + 0.5, str(value), ha='center', va='bottom')
-    for i, value in enumerate(green_bar):
-        plt.text(i + (width * 2), value + 0.5, str(value), ha='center', va='bottom')
+    # plt.bar(ind, blue_bar, width, label='Could not afford medical care')
+    # plt.bar(ind + width, orange_bar, width, label='Could not afford dental care')
+    # plt.bar(ind + (width * 2), green_bar, width, label='Could not afford prescription care')
+    # for i, value in enumerate(blue_bar):
+    #     plt.text(i, value + 0.5, str(value), ha='center', va='bottom')
+    # for i, value in enumerate(orange_bar):
+    #     plt.text(i + width, value + 0.5, str(value), ha='center', va='bottom')
+    # for i, value in enumerate(green_bar):
+    #     plt.text(i + (width * 2), value + 0.5, str(value), ha='center', va='bottom')
 
-    plt.xlabel('Race')
-    plt.ylabel('Population')
-    plt.title('Health care affordability by race')
+    # plt.xlabel('Race')
+    # plt.ylabel('Population')
+    # plt.title('Health care affordability by race')
 
     # xticks()
     # First argument - A list of positions at which ticks should be placed
     # Second argument -  A list of labels to place at the given locations
-    plt.xticks(ind + width, ('Hispanic', 'White', 'Black', 'Asian'))
+    # plt.xticks(ind + width, ('Hispanic', 'White', 'Black', 'Asian'))
 
     # Finding the best position for legends and putting it
-    plt.legend(loc='best')
+    # plt.legend(loc='best')
 
 
     # Specify the values of blue bars (height)
@@ -154,7 +154,7 @@ def get_affordability_by_race():
     # Specify the values of green bars (height)
     noisy_green_bar = (round(np.random.laplace(loc=hispanic_pmed, scale=2)), round(np.random.laplace(loc=white_pmed, scale=2)), round(np.random.laplace(loc=black_pmed, scale=2)), round(np.random.laplace(loc=asian_pmed, scale=2)))
 
-    plt.subplot(212)   
+    # plt.subplot(212)   
 
     # Plotting
     plt.bar(ind, noisy_blue_bar, width, label='Could not afford medical care')
@@ -169,7 +169,7 @@ def get_affordability_by_race():
 
     plt.xlabel('Race')
     plt.ylabel('Population')
-    plt.title('Health care affordability by race with DP (ε = 0.5)')
+    plt.title('Health care affordability by race (ε = 1)')
 
     # xticks()
     # First argument - A list of positions at which ticks should be placed
@@ -179,7 +179,7 @@ def get_affordability_by_race():
     # Finding the best position for legends and putting it
     plt.legend(loc='best')
 
-    plt.subplots_adjust(hspace=0.3)
+    # plt.subplots_adjust(hspace=0.3)
     plt.show()
 
 def get_discrimination_by_race():
@@ -219,49 +219,49 @@ def get_discrimination_by_race():
     ind = np.arange(N)
 
     # Figure size
-    plt.figure(figsize=(10,10))
-    plt.subplot(211)
+    plt.figure(figsize=(8,6))
+    # plt.subplot(211)
 
     # Width of a bar 
     width = 0.2
 
     # Plotting
-    plt.bar(ind, blue_bar, width, label='Discrimination in healthcare')
-    plt.bar(ind + width, orange_bar, width, label='Discrimination by police')
-    plt.bar(ind + (width * 2), green_bar, width, label='Discrimination in job applications')
-    plt.bar(ind + (width * 3), red_bar, width, label='Discrimination at work')
-    for i, value in enumerate(blue_bar):
-        plt.text(i, value + 0.5, str(value), ha='center', va='bottom')
-    for i, value in enumerate(orange_bar):
-        plt.text(i + width, value + 0.5, str(value), ha='center', va='bottom')
-    for i, value in enumerate(green_bar):
-        plt.text(i + (width * 2), value + 0.5, str(value), ha='center', va='bottom')
-    for i, value in enumerate(red_bar):
-        plt.text(i + (width * 3), value + 0.5, str(value), ha='center', va='bottom')
+    # plt.bar(ind, blue_bar, width, label='Discrimination in healthcare')
+    # plt.bar(ind + width, orange_bar, width, label='Discrimination by police')
+    # plt.bar(ind + (width * 2), green_bar, width, label='Discrimination in job applications')
+    # plt.bar(ind + (width * 3), red_bar, width, label='Discrimination at work')
+    # for i, value in enumerate(blue_bar):
+    #     plt.text(i, value + 0.5, str(value), ha='center', va='bottom')
+    # for i, value in enumerate(orange_bar):
+    #     plt.text(i + width, value + 0.5, str(value), ha='center', va='bottom')
+    # for i, value in enumerate(green_bar):
+    #     plt.text(i + (width * 2), value + 0.5, str(value), ha='center', va='bottom')
+    # for i, value in enumerate(red_bar):
+    #     plt.text(i + (width * 3), value + 0.5, str(value), ha='center', va='bottom')
 
-    plt.xlabel('Race')
-    plt.ylabel('Population')
-    plt.title('Discrimination by race')
+    # plt.xlabel('Race')
+    # plt.ylabel('Population')
+    # plt.title('Discrimination by race')
 
     # xticks()
     # First argument - A list of positions at which ticks should be placed
     # Second argument -  A list of labels to place at the given locations
-    plt.xticks(ind + (width * 3) / 2, ('Hispanic', 'White', 'Black', 'Asian'))
+    # plt.xticks(ind + (width * 3) / 2, ('Hispanic', 'White', 'Black', 'Asian'))
 
     # Finding the best position for legends and putting it
-    plt.legend(loc='best')
+    # plt.legend(loc='best')
 
 
     # Specify the values of blue bars (height)
-    noisy_blue_bar = (round(np.random.laplace(loc=hispanic_hlthcr, scale=1)), round(np.random.laplace(loc=white_hlthcr, scale=1)), round(np.random.laplace(loc=black_hlthcr, scale=1)), round(np.random.laplace(loc=asian_hlthcr, scale=1)))
+    noisy_blue_bar = (round(np.random.laplace(loc=hispanic_hlthcr, scale=2)), round(np.random.laplace(loc=white_hlthcr, scale=2)), round(np.random.laplace(loc=black_hlthcr, scale=2)), round(np.random.laplace(loc=asian_hlthcr, scale=2)))
     # Specify the values of orange bars (height)
-    noisy_orange_bar = (round(np.random.laplace(loc=hispanic_police, scale=1)), round(np.random.laplace(loc=white_police, scale=1)), round(np.random.laplace(loc=black_police, scale=1)), round(np.random.laplace(loc=asian_police, scale=1)))
+    noisy_orange_bar = (round(np.random.laplace(loc=hispanic_police, scale=2)), round(np.random.laplace(loc=white_police, scale=2)), round(np.random.laplace(loc=black_police, scale=2)), round(np.random.laplace(loc=asian_police, scale=2)))
     # Specify the values of green bars (height)
-    noisy_green_bar = (round(np.random.laplace(loc=hispanic_jbsrch, scale=1)), round(np.random.laplace(loc=white_jbsrch, scale=1)), round(np.random.laplace(loc=black_jbsrch, scale=1)), round(np.random.laplace(loc=asian_jbsrch, scale=1)))
+    noisy_green_bar = (round(np.random.laplace(loc=hispanic_jbsrch, scale=2)), round(np.random.laplace(loc=white_jbsrch, scale=2)), round(np.random.laplace(loc=black_jbsrch, scale=2)), round(np.random.laplace(loc=asian_jbsrch, scale=2)))
     # Specify the values of purple bars (height)
-    noisy_red_bar = (round(np.random.laplace(loc=hispanic_work, scale=1)), round(np.random.laplace(loc=white_work, scale=1)), round(np.random.laplace(loc=black_work, scale=1)), round(np.random.laplace(loc=asian_work, scale=1)))
+    noisy_red_bar = (round(np.random.laplace(loc=hispanic_work, scale=2)), round(np.random.laplace(loc=white_work, scale=2)), round(np.random.laplace(loc=black_work, scale=2)), round(np.random.laplace(loc=asian_work, scale=2)))
     
-    plt.subplot(212)   
+    # plt.subplot(212)   
 
     # Plotting
     plt.bar(ind, noisy_blue_bar, width, label='Discrimination in healthcare')
@@ -279,7 +279,7 @@ def get_discrimination_by_race():
 
     plt.xlabel('Race')
     plt.ylabel('Population')
-    plt.title('Discrimination by race with DP (ε = 1)')
+    plt.title('Discrimination by race (ε = 1)')
 
     # xticks()
     # First argument - A list of positions at which ticks should be placed
@@ -289,7 +289,7 @@ def get_discrimination_by_race():
     # Finding the best position for legends and putting it
     plt.legend(loc='best')
 
-    plt.subplots_adjust(hspace=0.3)
+    # plt.subplots_adjust(hspace=0.3)
     plt.show()
 
 def get_uninsured():
@@ -307,25 +307,25 @@ def get_uninsured():
     ind = np.arange(N)
 
     # Figure size
-    plt.figure(figsize=(10,10))
-    plt.subplot(211)
+    plt.figure(figsize=(8,6))
+    # plt.subplot(211)
 
     # Width of a bar 
     width = 0.3       
 
     # Plotting
-    plt.bar(ind, blue_bar, width)
-    for i, value in enumerate(blue_bar):
-        plt.text(i, value + 0.5, str(value), ha='center', va='bottom')
+    # plt.bar(ind, blue_bar, width)
+    # for i, value in enumerate(blue_bar):
+    #     plt.text(i, value + 0.5, str(value), ha='center', va='bottom')
 
-    plt.xlabel('Years')
-    plt.ylabel('Population')
-    plt.title('Uninsured by USA born and English spoken at home')
+    # plt.xlabel('Years')
+    # plt.ylabel('Population')
+    # plt.title('Uninsured by USA born and English spoken at home')
 
     # xticks()
     # First argument - A list of positions at which ticks should be placed
     # Second argument -  A list of labels to place at the given locations
-    plt.xticks(ind, ('USA & English', 'USA & not English', 'non USA & English', 'non USA & not English'))
+    # plt.xticks(ind, ('USA & English', 'USA & not English', 'non USA & English', 'non USA & not English'))
 
     # Finding the best position for legends and putting it
     # plt.legend(loc='best')
@@ -334,7 +334,7 @@ def get_uninsured():
     # Specify the values of blue bars (height)
     noisy_blue_bar = (round(np.random.laplace(loc=usaborn_english_unins, scale=2)), round(np.random.laplace(loc=usaborn_nonenglish_unins, scale=2)), round(np.random.laplace(loc=nonusaborn_english_unins, scale=2)), round(np.random.laplace(loc=nonusaborn_nonenglish_unins, scale=2)))
 
-    plt.subplot(212)   
+    # plt.subplot(212)   
 
     # Plotting
     plt.bar(ind, noisy_blue_bar, width)
@@ -342,19 +342,19 @@ def get_uninsured():
         plt.text(i, value + 0.5, str(value), ha='center', va='bottom')
 
 
-    plt.xlabel('Years')
+    plt.xlabel('Born in the US or not and speaks English at home or not')
     plt.ylabel('Population')
-    plt.title('Uninsured by USA born and English spoken at home with DP (ε = .5)')
+    plt.title('Uninsured by USA born and English spoken at home (ε = 1)')
 
     # xticks()
     # First argument - A list of positions at which ticks should be placed
     # Second argument -  A list of labels to place at the given locations
-    plt.xticks(ind, ('USA & English', 'USA & not English', 'non USA & English', 'non USA & not English'))
+    plt.xticks(ind, ('USA & English', 'USA & not English', 'not USA & English', 'not USA & not English'))
 
     # Finding the best position for legends and putting it
     # plt.legend(loc='best')
 
-    plt.subplots_adjust(hspace=0.3)
+    # plt.subplots_adjust(hspace=0.3)
     plt.show()
 
 def get_insurance_type():
@@ -378,39 +378,39 @@ def get_insurance_type():
     ind = np.arange(N)
 
     # Figure size
-    plt.figure(figsize=(10,10))
-    plt.subplot(211)
+    plt.figure(figsize=(8,6))
+    # plt.subplot(211)
 
     # Width of a bar 
     width = 0.3       
 
     # Plotting
-    plt.bar(ind, blue_bar, width, label='private insurance')
-    plt.bar(ind + width, orange_bar, width, label='public insurance')
-    for i, value in enumerate(blue_bar):
-        plt.text(i, value + 0.5, str(value), ha='center', va='bottom')
-    for i, value in enumerate(orange_bar):
-        plt.text(i + width, value + 0.5, str(value), ha='center', va='bottom')
+    # plt.bar(ind, blue_bar, width, label='private insurance')
+    # plt.bar(ind + width, orange_bar, width, label='public insurance')
+    # for i, value in enumerate(blue_bar):
+    #     plt.text(i, value + 0.5, str(value), ha='center', va='bottom')
+    # for i, value in enumerate(orange_bar):
+    #     plt.text(i + width, value + 0.5, str(value), ha='center', va='bottom')
 
-    plt.xlabel('Years')
-    plt.ylabel('Population')
-    plt.title('Insurance type by gender and marital status')
+    # plt.xlabel('Years')
+    # plt.ylabel('Population')
+    # plt.title('Insurance type by gender and marital status')
 
     # xticks()
     # First argument - A list of positions at which ticks should be placed
     # Second argument -  A list of labels to place at the given locations
-    plt.xticks(ind + width / 2, ('single male', 'single female', 'married male', 'married female'))
+    # plt.xticks(ind + width / 2, ('single male', 'single female', 'married male', 'married female'))
 
     # Finding the best position for legends and putting it
-    plt.legend(loc='best')
+    # plt.legend(loc='best')
 
 
     # Specify the values of blue bars (height)
-    noisy_blue_bar = (round(np.random.laplace(loc=male_single_priv, scale=1)), round(np.random.laplace(loc=female_single_priv, scale=1)), round(np.random.laplace(loc=male_married_priv, scale=1)), round(np.random.laplace(loc=female_married_priv, scale=1)))
+    noisy_blue_bar = (round(np.random.laplace(loc=male_single_priv, scale=2)), round(np.random.laplace(loc=female_single_priv, scale=2)), round(np.random.laplace(loc=male_married_priv, scale=2)), round(np.random.laplace(loc=female_married_priv, scale=2)))
     # Specify the values of orange bars (height)
-    noisy_orange_bar = (round(np.random.laplace(loc=male_single_publ, scale=1)), round(np.random.laplace(loc=female_single_publ, scale=1)), round(np.random.laplace(loc=male_married_publ, scale=1)), round(np.random.laplace(loc=female_married_publ, scale=1)))
+    noisy_orange_bar = (round(np.random.laplace(loc=male_single_publ, scale=2)), round(np.random.laplace(loc=female_single_publ, scale=2)), round(np.random.laplace(loc=male_married_publ, scale=2)), round(np.random.laplace(loc=female_married_publ, scale=2)))
 
-    plt.subplot(212)   
+    # plt.subplot(212)   
 
     # Plotting
     plt.bar(ind, noisy_blue_bar, width, label='private insurance')
@@ -421,24 +421,24 @@ def get_insurance_type():
         plt.text(i + width, value + 0.5, str(value), ha='center', va='bottom')
 
 
-    plt.xlabel('Years')
+    plt.xlabel('Gender and Marital Status')
     plt.ylabel('Population')
-    plt.title('Insurance type by gender and marital status with DP (ε = 1)')
+    plt.title('Insurance type by gender and marital status (ε = 1)')
 
     # xticks()
     # First argument - A list of positions at which ticks should be placed
     # Second argument -  A list of labels to place at the given locations
-    plt.xticks(ind + width / 2, ('single male', 'single female', 'married male', 'married female'))
+    plt.xticks(ind + width / 2, ('Single Man', 'Single Women', 'Married Man', 'Married Woman'))
 
     # Finding the best position for legends and putting it
     plt.legend(loc='best')
 
-    plt.subplots_adjust(hspace=0.3)
+    # plt.subplots_adjust(hspace=0.3)
     plt.show()
 
 if __name__ == "__main__":
-    get_diagnosis_by_race()
-    get_affordability_by_race()
-    get_discrimination_by_race()
-    get_uninsured()
+    # get_diagnosis_by_race()
+    # get_affordability_by_race()
+    # get_discrimination_by_race()
+    # get_uninsured()
     get_insurance_type()
