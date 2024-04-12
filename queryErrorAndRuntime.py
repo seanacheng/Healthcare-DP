@@ -241,14 +241,14 @@ def get_uninsured():
 
     plt.xlabel('Epsilon')
     plt.ylabel('Error')
-    plt.title('Diagnoses by Race Error')
+    plt.title('Uninsured By Immigrant Status Error')
 
     plt.subplot(212)
     plt.scatter(plotted_epsilon_list, runtime_list)
     
     plt.xlabel('Epsilon')
     plt.ylabel('Runtime')
-    plt.title('Diagnoses by Race Runtime')
+    plt.title('Uninsured By Immigrant Status Runtime')
     
     plt.subplots_adjust(hspace=0.3)
     plt.show()
@@ -298,14 +298,14 @@ def get_insurance_type():
 
     plt.xlabel('Epsilon')
     plt.ylabel('Error')
-    plt.title('Diagnoses by Race Error')
+    plt.title('Insurance Type by Gender and Marital Status Error')
 
     plt.subplot(212)
     plt.scatter(plotted_epsilon_list, runtime_list)
     
     plt.xlabel('Epsilon')
     plt.ylabel('Runtime')
-    plt.title('Diagnoses by Race Runtime')
+    plt.title('Insurance Type by Gender and Marital Status Runtime')
     
     plt.subplots_adjust(hspace=0.3)
     plt.show()
