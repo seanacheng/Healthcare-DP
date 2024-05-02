@@ -7,7 +7,6 @@ df = pd.read_csv('h236.csv')
 N = 4
 ind = np.arange(N)
 
-width = 0.3
 
 def get_diagnosis_by_race():
     filtered_df = df[(df['DIABDXY1_M18'] == 1)]
@@ -21,9 +20,10 @@ def get_diagnosis_by_race():
     black_canc = len(filtered_df.loc[df['RACETHX'] == 3, 'CANCERY1'])
     asian_canc = len(filtered_df.loc[df['RACETHX'] == 4, 'CANCERY1'])
 
-    noisy_blue_bar = (round(np.random.laplace(loc=hispanic_diab, scale=2)), round(np.random.laplace(loc=white_diab, scale=2)), round(np.random.laplace(loc=black_diab, scale=2)), round(np.random.laplace(loc=asian_diab, scale=2)))
-    noisy_orange_bar = (round(np.random.laplace(loc=hispanic_canc, scale=2)), round(np.random.laplace(loc=white_canc, scale=2)), round(np.random.laplace(loc=black_canc, scale=2)), round(np.random.laplace(loc=asian_canc, scale=2)))
+    noisy_blue_bar = (round(np.random.laplace(loc=hispanic_diab, scale=3.555)), round(np.random.laplace(loc=white_diab, scale=3.555)), round(np.random.laplace(loc=black_diab, scale=3.555)), round(np.random.laplace(loc=asian_diab, scale=3.555)))
+    noisy_orange_bar = (round(np.random.laplace(loc=hispanic_canc, scale=3.555)), round(np.random.laplace(loc=white_canc, scale=3.555)), round(np.random.laplace(loc=black_canc, scale=3.555)), round(np.random.laplace(loc=asian_canc, scale=3.555)))
 
+    width = 0.3
     plt.figure(figsize=(8,6))
     plt.bar(ind, noisy_blue_bar, width, label='Diabetes diagnosis')
     plt.bar(ind + width, noisy_orange_bar, width, label='Cancer diagnosis')
@@ -34,7 +34,7 @@ def get_diagnosis_by_race():
 
     plt.xlabel('Race')
     plt.ylabel('Population')
-    plt.title('Diagnoses by race (ε = 1)')
+    plt.title('Diagnoses by race (ε = .75)')
     plt.xticks(ind + width / 2, ('Hispanic', 'White', 'Black', 'Asian'))
     plt.legend(loc='best')
     plt.show()
@@ -56,10 +56,11 @@ def get_affordability_by_race():
     black_pmed = len(filtered_df.loc[df['RACETHX'] == 3, 'AFRDPM2'])
     asian_pmed = len(filtered_df.loc[df['RACETHX'] == 4, 'AFRDPM2'])
 
-    noisy_blue_bar = (round(np.random.laplace(loc=hispanic_med, scale=2)), round(np.random.laplace(loc=white_med, scale=2)), round(np.random.laplace(loc=black_med, scale=2)), round(np.random.laplace(loc=asian_med, scale=2)))
-    noisy_orange_bar = (round(np.random.laplace(loc=hispanic_den, scale=2)), round(np.random.laplace(loc=white_den, scale=2)), round(np.random.laplace(loc=black_den, scale=2)), round(np.random.laplace(loc=asian_den, scale=2)))
-    noisy_green_bar = (round(np.random.laplace(loc=hispanic_pmed, scale=2)), round(np.random.laplace(loc=white_pmed, scale=2)), round(np.random.laplace(loc=black_pmed, scale=2)), round(np.random.laplace(loc=asian_pmed, scale=2)))
+    noisy_blue_bar = (round(np.random.laplace(loc=hispanic_med, scale=3.555)), round(np.random.laplace(loc=white_med, scale=3.555)), round(np.random.laplace(loc=black_med, scale=3.555)), round(np.random.laplace(loc=asian_med, scale=3.555)))
+    noisy_orange_bar = (round(np.random.laplace(loc=hispanic_den, scale=3.555)), round(np.random.laplace(loc=white_den, scale=3.555)), round(np.random.laplace(loc=black_den, scale=3.555)), round(np.random.laplace(loc=asian_den, scale=3.555)))
+    noisy_green_bar = (round(np.random.laplace(loc=hispanic_pmed, scale=3.555)), round(np.random.laplace(loc=white_pmed, scale=3.555)), round(np.random.laplace(loc=black_pmed, scale=3.555)), round(np.random.laplace(loc=asian_pmed, scale=3.555)))
 
+    width = 0.25
     plt.figure(figsize=(8,6))
     plt.bar(ind, noisy_blue_bar, width, label='Could not afford medical care')
     plt.bar(ind + width, noisy_orange_bar, width, label='Could not afford dental care')
@@ -73,7 +74,7 @@ def get_affordability_by_race():
 
     plt.xlabel('Race')
     plt.ylabel('Population')
-    plt.title('Health care affordability by race (ε = 1)')
+    plt.title('Health care affordability by race (ε = .75)')
     plt.xticks(ind + width, ('Hispanic', 'White', 'Black', 'Asian'))
     plt.legend(loc='best')
     plt.show()
@@ -100,11 +101,12 @@ def get_discrimination_by_race():
     black_work = len(filtered_df.loc[df['RACETHX'] == 3, 'SDDSCRMWRK7'])
     asian_work = len(filtered_df.loc[df['RACETHX'] == 4, 'SDDSCRMWRK7'])
 
-    noisy_blue_bar = (round(np.random.laplace(loc=hispanic_hlthcr, scale=2)), round(np.random.laplace(loc=white_hlthcr, scale=2)), round(np.random.laplace(loc=black_hlthcr, scale=2)), round(np.random.laplace(loc=asian_hlthcr, scale=2)))
-    noisy_orange_bar = (round(np.random.laplace(loc=hispanic_police, scale=2)), round(np.random.laplace(loc=white_police, scale=2)), round(np.random.laplace(loc=black_police, scale=2)), round(np.random.laplace(loc=asian_police, scale=2)))
-    noisy_green_bar = (round(np.random.laplace(loc=hispanic_jbsrch, scale=2)), round(np.random.laplace(loc=white_jbsrch, scale=2)), round(np.random.laplace(loc=black_jbsrch, scale=2)), round(np.random.laplace(loc=asian_jbsrch, scale=2)))
-    noisy_red_bar = (round(np.random.laplace(loc=hispanic_work, scale=2)), round(np.random.laplace(loc=white_work, scale=2)), round(np.random.laplace(loc=black_work, scale=2)), round(np.random.laplace(loc=asian_work, scale=2)))
+    noisy_blue_bar = (round(np.random.laplace(loc=hispanic_hlthcr, scale=3.555)), round(np.random.laplace(loc=white_hlthcr, scale=3.555)), round(np.random.laplace(loc=black_hlthcr, scale=3.555)), round(np.random.laplace(loc=asian_hlthcr, scale=3.555)))
+    noisy_orange_bar = (round(np.random.laplace(loc=hispanic_police, scale=3.555)), round(np.random.laplace(loc=white_police, scale=3.555)), round(np.random.laplace(loc=black_police, scale=3.555)), round(np.random.laplace(loc=asian_police, scale=3.555)))
+    noisy_green_bar = (round(np.random.laplace(loc=hispanic_jbsrch, scale=3.555)), round(np.random.laplace(loc=white_jbsrch, scale=3.555)), round(np.random.laplace(loc=black_jbsrch, scale=3.555)), round(np.random.laplace(loc=asian_jbsrch, scale=3.555)))
+    noisy_red_bar = (round(np.random.laplace(loc=hispanic_work, scale=3.555)), round(np.random.laplace(loc=white_work, scale=3.555)), round(np.random.laplace(loc=black_work, scale=3.555)), round(np.random.laplace(loc=asian_work, scale=3.555)))
     
+    width = 0.2
     plt.figure(figsize=(8,6))
     plt.bar(ind, noisy_blue_bar, width, label='Discrimination in healthcare')
     plt.bar(ind + width, noisy_orange_bar, width, label='Discrimination by police')
@@ -121,7 +123,7 @@ def get_discrimination_by_race():
 
     plt.xlabel('Race')
     plt.ylabel('Population')
-    plt.title('Discrimination by race (ε = 1)')
+    plt.title('Discrimination by race (ε = .75)')
     plt.xticks(ind + (width * 3) / 2, ('Hispanic', 'White', 'Black', 'Asian'))
     plt.legend(loc='best')
     plt.show()
@@ -133,8 +135,9 @@ def get_uninsured():
     nonusaborn_english_unins = len(filtered_df.loc[(df['BORNUSA'] == 2) & (df['OTHLGSPK'] == 2), 'UNINSY1'])
     nonusaborn_nonenglish_unins = len(filtered_df.loc[(df['BORNUSA'] == 2) & df['OTHLGSPK'] == 1, 'UNINSY1'])
 
-    noisy_blue_bar = (round(np.random.laplace(loc=usaborn_english_unins, scale=2)), round(np.random.laplace(loc=usaborn_nonenglish_unins, scale=2)), round(np.random.laplace(loc=nonusaborn_english_unins, scale=2)), round(np.random.laplace(loc=nonusaborn_nonenglish_unins, scale=2)))
+    noisy_blue_bar = (round(np.random.laplace(loc=usaborn_english_unins, scale=8)), round(np.random.laplace(loc=usaborn_nonenglish_unins, scale=8)), round(np.random.laplace(loc=nonusaborn_english_unins, scale=8)), round(np.random.laplace(loc=nonusaborn_nonenglish_unins, scale=8)))
 
+    width = 0.4
     plt.figure(figsize=(8,6))
     plt.bar(ind, noisy_blue_bar, width)
     for i, value in enumerate(noisy_blue_bar):
@@ -142,7 +145,7 @@ def get_uninsured():
 
     plt.xlabel('Born in the US or not and speaks English at home or not')
     plt.ylabel('Population')
-    plt.title('Uninsured by USA born and English spoken at home (ε = 1)')
+    plt.title('Uninsured by USA born and English spoken at home (ε = .5)')
     plt.xticks(ind, ('USA & English', 'USA & not English', 'not USA & English', 'not USA & not English'))
     plt.show()
 
@@ -158,9 +161,10 @@ def get_insurance_type():
     male_married_publ = len(filtered_df.loc[(df['SEX'] == 1) & (df['SPOUINY1'] == 2), 'INSCOVY1'])
     female_married_publ = len(filtered_df.loc[(df['SEX'] == 2) & (df['SPOUINY1'] == 2), 'INSCOVY1'])
 
-    noisy_blue_bar = (round(np.random.laplace(loc=male_single_priv, scale=2)), round(np.random.laplace(loc=female_single_priv, scale=2)), round(np.random.laplace(loc=male_married_priv, scale=2)), round(np.random.laplace(loc=female_married_priv, scale=2)))
-    noisy_orange_bar = (round(np.random.laplace(loc=male_single_publ, scale=2)), round(np.random.laplace(loc=female_single_publ, scale=2)), round(np.random.laplace(loc=male_married_publ, scale=2)), round(np.random.laplace(loc=female_married_publ, scale=2)))
+    noisy_blue_bar = (round(np.random.laplace(loc=male_single_priv, scale=3.555)), round(np.random.laplace(loc=female_single_priv, scale=3.555)), round(np.random.laplace(loc=male_married_priv, scale=3.555)), round(np.random.laplace(loc=female_married_priv, scale=3.555)))
+    noisy_orange_bar = (round(np.random.laplace(loc=male_single_publ, scale=3.555)), round(np.random.laplace(loc=female_single_publ, scale=3.555)), round(np.random.laplace(loc=male_married_publ, scale=3.555)), round(np.random.laplace(loc=female_married_publ, scale=3.555)))
 
+    width = 0.3
     plt.figure(figsize=(8,6))
     plt.bar(ind, noisy_blue_bar, width, label='private insurance')
     plt.bar(ind + width, noisy_orange_bar, width, label='public insurance')
@@ -171,7 +175,7 @@ def get_insurance_type():
 
     plt.xlabel('Gender and Marital Status')
     plt.ylabel('Population')
-    plt.title('Insurance type by gender and marital status (ε = 1)')
+    plt.title('Insurance type by gender and marital status (ε = .75)')
     plt.xticks(ind + width / 2, ('Single Man', 'Single Women', 'Married Man', 'Married Woman'))
     plt.legend(loc='best')
     plt.show()
